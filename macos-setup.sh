@@ -18,6 +18,8 @@ brew cask install webstorm
 brew cask install datagrip
 brew cask install intellij-idea
 
+brew cask install postman
+
 brew install tmux
 echo -n '
 unbind C-b
