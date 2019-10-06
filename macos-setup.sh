@@ -11,6 +11,11 @@ then
     open /Applications/Docker.app
 fi
 
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew cask install adoptopenjdk/openjdk/adoptopenjdk9
+brew cask install adoptopenjdk/openjdk/adoptopenjdk10
+brew cask install adoptopenjdk/openjdk/adoptopenjdk11
+
 brew cask install spotify
 brew cask install slack
 
