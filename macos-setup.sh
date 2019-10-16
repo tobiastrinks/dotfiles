@@ -22,6 +22,7 @@ brew cask install slack
 brew cask install webstorm
 brew cask install datagrip
 brew cask install intellij-idea
+brew cask install pycharm
 
 brew cask install postman
 
