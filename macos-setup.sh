@@ -53,6 +53,9 @@ echo -n '
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# suppress MacOS Catalina verbose message to use zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
 ' >> ~/.bash_profile
 
 echo -n '
