@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew cask install iterm2
 brew cask install sublime-text
@@ -40,14 +42,16 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-touch ~/.bash_profile
-touch ~/.bash_aliases
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+touch ~/.zshrc
+touch ~/.zsh_aliases
 
 echo -n '
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
+if [ -f ~/.zsh_aliases ]; then
+  source ~/.zsh_aliases
 fi
-' >> ~/.bash_profile
+' >> ~/.zshrc
 
 echo -n '
 export NVM_DIR="$HOME/.nvm"
@@ -56,7 +60,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # suppress MacOS Catalina verbose message to use zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
-' >> ~/.bash_profile
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6b6b6b"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+' >> ~/.zshrc
 
 echo -n '
 alias ll="ls -la"
@@ -64,6 +71,6 @@ alias c="clear"
 alias work="cd ~/workspace"
 alias he="cd ~/workspace/hotel-edison"
 alias keeet="cd ~/workspace/keeet"
-' >> ~/.bash_aliases
+' >> ~/.zsh_aliases
 
 source ~/.bash_profile
