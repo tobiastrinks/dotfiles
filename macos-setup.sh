@@ -91,5 +91,10 @@ alias he="cd ~/workspace/hotel-edison"
 alias keeet="cd ~/workspace/keeet"
 ' >> ~/.zsh_aliases
 
+echo -n '
+set globsearch on
+cmd open $subl $fx
+' > ~/.config/lf/lfrc
+
 source ~/.zshrc
 source ~/.zsh_aliases
