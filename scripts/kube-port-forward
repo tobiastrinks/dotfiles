@@ -1,34 +1,15 @@
 #!/bin/bash
+# Port forward to a pod in k8s
 
-function trap_ctrlc ()
-{
-    echo "Ctrl-C caught... performing cleanup"
-    echo "Stopping and deleting pod"
+if [ "$#" -ne 3 ]; then
+  echo "Usage $0 <environment> <service name> <local port:remote port>"
+  exit 1
+fi
 
-    kubectl delete pod tobias-forward --force --grace-period=0
+environment=$1
+service=$2
+ports=$3
 
-    exit 2
-}
-
-trap "trap_ctrlc" 2
-
-kubectl run tobias-forward --restart Never --image alpine -- sh -c "\
-    apk update
-    apk add socat
-    socat tcp-listen:9201,reuseaddr,fork tcp:{{HOSTNAME}}:{{PORT}} &
-
-    while :; do sleep 2073600; done
-"
-
-PID1=-1
-
-while :
-do
-    if ((PID1 == -1)) || ! ps -p $PID1 > /dev/null; then
-        kubectl port-forward tobias-forward 9201:9201 &
-        PID1=$!
-    fi
-   sleep 1
-done
-
-cat
+pod=$(kubectl --context "$environment" get pods | grep "$service" | head -n1 | awk '{ print $1 }')
+echo $pod
+kubectl --context "$environment" port-forward "$pod" "$ports"
