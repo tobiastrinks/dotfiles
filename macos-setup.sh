@@ -43,6 +43,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 touch ~/.zshrc
 touch ~/.zsh_aliases
@@ -60,6 +61,26 @@ export NVM_DIR="$HOME/.nvm"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6b6b6b"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ":completion:*" menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s "^o" "lfcd\n"
 ' >> ~/.zshrc
 
 echo -n '
@@ -70,4 +91,10 @@ alias he="cd ~/workspace/hotel-edison"
 alias keeet="cd ~/workspace/keeet"
 ' >> ~/.zsh_aliases
 
-source ~/.bash_profile
+echo -n '
+set globsearch on
+cmd open $subl $fx
+' > ~/.config/lf/lfrc
+
+source ~/.zshrc
+source ~/.zsh_aliases
