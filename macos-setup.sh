@@ -28,6 +28,7 @@ brew cask install pycharm
 
 brew cask install postman
 
+brew install watch
 brew install tmux
 echo -n '
 unbind C-b
