@@ -30,72 +30,19 @@ brew cask install postman
 
 brew install watch
 brew install tmux
-echo -n '
-unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
-set -g mouse on
-' > ~/.tmux.conf
+cp .tmux.conf ~/.tmux.conf
 bind r source-file ~/.tmux.conf
 
 brew install node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+source ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-touch ~/.zshrc
-touch ~/.zsh_aliases
-
-echo -n '
-if [ -f ~/.zsh_aliases ]; then
-  source ~/.zsh_aliases
-fi
-' >> ~/.zshrc
-
-echo -n '
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6b6b6b"
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ":completion:*" menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s "^o" "lfcd\n"
-' >> ~/.zshrc
-
-echo -n '
-alias ll="ls -la"
-alias c="clear"
-alias work="cd ~/workspace"
-alias he="cd ~/workspace/hotel-edison"
-alias keeet="cd ~/workspace/keeet"
-' >> ~/.zsh_aliases
-
-echo -n '
-set globsearch on
-cmd open $subl $fx
-' > ~/.config/lf/lfrc
+cp .zshrc ~/.zshrc
+cp .zsh_aliases ~/.zsh_aliases
+cp .config/lfrc ~/.config/lf/lfrc
 
 source ~/.zshrc
 source ~/.zsh_aliases
