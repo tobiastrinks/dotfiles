@@ -29,6 +29,7 @@ bindkey -s "^o" "lfcd\n"
 plugins=(
 	git
 	zsh-autosuggestions
+	zsh-syntax-highlighting # must be last
 )
 
 source $ZSH/oh-my-zsh.sh
