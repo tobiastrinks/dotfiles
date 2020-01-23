@@ -1,3 +1,4 @@
 alias ll="ls -la"
 alias c="clear"
 alias work="cd ~/workspace"
+alias watch="watch " # to enable alias chaining after watch
