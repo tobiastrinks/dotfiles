@@ -6,6 +6,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+export NODE_OPTIONS=--max_old_space_size=8192
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6b6b6b"
 
 # Basic auto/tab complete:
