@@ -53,4 +53,3 @@ source ~/.zshrc
 source ~/.zsh_aliases
 
 brew install kubernetes-cli
-brew install krew

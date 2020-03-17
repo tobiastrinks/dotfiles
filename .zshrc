@@ -8,9 +8,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export NODE_OPTIONS=--max_old_space_size=8192
 
-# kubectl package manager
-export PATH="${PATH}:${HOME}/.krew/bin"
-
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6b6b6b"
 
 # Basic auto/tab complete:
@@ -42,3 +39,6 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 fi
+
+# list of kubeconfig files to use (separate with :)
+export KUBECONFIG="$HOME/.kube/config"
