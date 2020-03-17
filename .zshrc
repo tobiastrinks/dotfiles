@@ -40,5 +40,7 @@ if [ -f ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 fi
 
+export PATH=~/scripts:$PATH
+
 # list of kubeconfig files to use (separate with :)
 export KUBECONFIG="$HOME/.kube/config"
