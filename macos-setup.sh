@@ -33,6 +33,10 @@ brew install tmux
 cp .tmux.conf ~/.tmux.conf
 bind r source-file ~/.tmux.conf
 
+brew install kube-ps1
+brew install kubectx
+brew install derailed/k9s/k9s
+
 brew install node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 

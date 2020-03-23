@@ -36,6 +36,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+kubeoff
+
 if [ -f ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 fi
