@@ -2,7 +2,6 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew cask install iterm2
-brew cask install sublime-text
 brew cask install google-chrome
 brew cask install dropbox
 brew cask install docker
@@ -37,6 +36,11 @@ brew install kube-ps1
 brew install kubectx
 brew install derailed/k9s/k9s
 
+brew install kubernetes-cli
+
+brew cask install sublime-text
+cp "./Default (OSX).sublime-keymap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+
 brew install node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
@@ -54,5 +58,3 @@ cp -r ./scripts ~/scripts
 
 source ~/.zshrc
 source ~/.zsh_aliases
-
-brew install kubernetes-cli

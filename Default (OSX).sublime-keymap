@@ -1,0 +1,3 @@
+[
+        { "keys": ["super+option+7"], "command": "toggle_comment", "args": { "block": false } }
+]
