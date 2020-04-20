@@ -48,7 +48,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 cp .zshrc ~/.zshrc
 cp .zsh_aliases ~/.zsh_aliases
-cp .config/lfrc ~/.config/lf/lfrc
 
 mkdir -p ~/scripts
 cp -r ./scripts ~/scripts

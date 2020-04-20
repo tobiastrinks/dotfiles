@@ -1,2 +1,0 @@
-set globsearch on
-cmd open $subl $fx
