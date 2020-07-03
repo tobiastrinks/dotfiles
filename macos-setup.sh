@@ -6,6 +6,9 @@ brew cask install google-chrome
 brew cask install dropbox
 brew cask install docker
 
+brew cask install 1password
+brew cask install 1password-cli
+
 if (! docker stats --no-stream)
 then
     # start docker if not running

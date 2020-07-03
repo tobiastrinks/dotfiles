@@ -1,0 +1,34 @@
+#!/bin/bash
+
+OVERRIDE_ENV=()
+
+while getopts "e:" opt
+do
+   case $opt in
+		e)
+		OVERRIDE_ENV+=($OPTARG)
+		;;
+		*)
+		;;
+   esac
+done
+shift $((OPTIND -1))
+
+get_secure_env () {
+	op get item $1 --fields notes
+}
+
+SECURE_ENV=$(get_secure_env $1 || echo "")
+if [ -z "$SECURE_ENV" ]
+then
+	echo ERROR: 1Password cli unauthenticated or invalid item name
+	exit 1
+fi
+
+if [ -z "$2" ]
+then
+	echo -E $SECURE_ENV "${OVERRIDE_ENV[@]}"
+else
+	eval "export $(echo -E -n $SECURE_ENV "${OVERRIDE_ENV[@]}" | egrep -v '^#' | xargs -0)"
+	"${@:2}"
+fi

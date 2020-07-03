@@ -5,3 +5,5 @@ alias watch="watch " # to enable alias chaining after watch
 
 alias dcup="docker-compose up"
 alias dcdown="docker-compose down"
+
+alias opin="eval \$(op signin my)"
