@@ -61,3 +61,7 @@ cp -r ./scripts ~/scripts
 
 source ~/.zshrc
 source ~/.zsh_aliases
+
+# add your ssh-key to keychain
+# ssh-add -K ~/.ssh/id_rsa
+cp ssh.config ~/ssh/config
