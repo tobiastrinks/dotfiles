@@ -44,7 +44,9 @@ if [ -f ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 fi
 
-export PATH=~/scripts:$PATH
+export GEM_HOME="$HOME/.gem"
+
+export PATH="~/scripts:$GEM_HOME/bin:$PATH"
 
 # list of kubeconfig files to use (separate with :)
 export KUBECONFIG="$HOME/.kube/config"
