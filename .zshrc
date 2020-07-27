@@ -45,6 +45,7 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 export GEM_HOME="$HOME/.gem"
+gem install teamocil
 
 export PATH="~/scripts:$GEM_HOME/bin:$PATH"
 
