@@ -39,7 +39,11 @@ brew install kube-ps1
 brew install kubectx
 brew install derailed/k9s/k9s
 
-brew install kubernetes-cli
+brew install asdf
+# install specific version
+asdf install kubectl 1.18.8
+# set default version
+asdf global kubectl 1.18.8
 
 brew cask install sublime-text
 cp "./Default (OSX).sublime-keymap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"

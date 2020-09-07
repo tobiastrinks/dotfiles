@@ -47,7 +47,7 @@ fi
 export GEM_HOME="$HOME/.gem"
 gem install teamocil
 
-export PATH="$HOME/scripts:$GEM_HOME/bin:$PATH"
+export PATH="$HOME/scripts:$GEM_HOME/bin:$HOME/.asdf/shims:$PATH"
 
 # list of kubeconfig files to use (separate with :)
 export KUBECONFIG="$HOME/.kube/config"
