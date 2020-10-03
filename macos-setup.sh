@@ -52,7 +52,6 @@ brew install node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-source ~/.zshrc
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -65,6 +64,8 @@ cp -r ./scripts ~/scripts
 
 source ~/.zshrc
 source ~/.zsh_aliases
+
+gem install teamocil
 
 # add your ssh-key to keychain
 # ssh-add -K ~/.ssh/id_rsa
