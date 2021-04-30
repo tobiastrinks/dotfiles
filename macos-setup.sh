@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew cask install iterm2
-brew cask install google-chrome
-brew cask install dropbox
-brew cask install docker
+brew install iterm2
+brew install google-chrome
+brew install dropbox
+brew install --cask docker
 
-brew cask install 1password
-brew cask install 1password-cli
+brew install 1password
+brew install 1password-cli
 
 if (! docker stats --no-stream)
 then
@@ -15,20 +15,24 @@ then
     open /Applications/Docker.app
 fi
 
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
-brew cask install adoptopenjdk/openjdk/adoptopenjdk9
-brew cask install adoptopenjdk/openjdk/adoptopenjdk10
-brew cask install adoptopenjdk/openjdk/adoptopenjdk11
+#brew install adoptopenjdk/openjdk/adoptopenjdk8
+#brew install adoptopenjdk/openjdk/adoptopenjdk9
+#brew install adoptopenjdk/openjdk/adoptopenjdk10
+#brew install adoptopenjdk/openjdk/adoptopenjdk11
 
-brew cask install spotify
-brew cask install slack
+brew install rectangle
 
-brew cask install webstorm
-brew cask install datagrip
-brew cask install intellij-idea
-brew cask install pycharm
+brew install spotify
+brew install slack
 
-brew cask install postman
+brew install webstorm
+brew install datagrip
+brew install intellij-idea
+brew install pycharm
+
+brew install postgresql
+
+brew install postman
 
 brew install watch
 brew install tmux
@@ -45,7 +49,7 @@ asdf install kubectl 1.18.8
 # set default version
 asdf global kubectl 1.18.8
 
-brew cask install sublime-text
+brew install sublime-text
 cp "./Default (OSX).sublime-keymap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
 
 brew install node
