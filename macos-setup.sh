@@ -64,7 +64,8 @@ cp .zshrc ~/.zshrc
 cp .zsh_aliases ~/.zsh_aliases
 
 mkdir -p ~/scripts
-cp -r ./scripts ~/scripts
+cp -r ./scripts/* ~/scripts
+chmod +x ~/scripts/*
 
 source ~/.zshrc
 source ~/.zsh_aliases
