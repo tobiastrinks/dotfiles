@@ -38,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 
 source <(kubectl completion zsh)
 
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
 kubeoff
 
@@ -48,7 +48,8 @@ fi
 
 export GEM_HOME="$HOME/.gem"
 
-export PATH="$HOME/scripts:$GEM_HOME/bin:$HOME/.asdf/shims:$PATH"
+export PATH="$HOME/scripts:$GEM_HOME/bin:$HOME/.asdf/shims:/opt/homebrew/bin:$PATH"
 
 # list of kubeconfig files to use (separate with :)
 export KUBECONFIG="$HOME/.kube/config"
+

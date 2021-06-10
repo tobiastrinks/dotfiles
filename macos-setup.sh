@@ -35,7 +35,10 @@ brew install postgresql
 brew install postman
 
 brew install watch
+
 brew install tmux
+# install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp .tmux.conf ~/.tmux.conf
 bind r source-file ~/.tmux.conf
 
