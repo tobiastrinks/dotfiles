@@ -43,7 +43,6 @@ cp .tmux.conf ~/.tmux.conf
 bind r source-file ~/.tmux.conf
 
 brew install kube-ps1
-brew install kubectx
 brew install derailed/k9s/k9s
 
 brew install asdf
